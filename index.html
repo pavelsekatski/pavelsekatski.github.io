@@ -161,15 +161,21 @@ button.tag:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 button.rtag{all:unset;cursor:pointer;font:500 .72rem/1 var(--mono);color:var(--muted);border:1px solid var(--line);padding:3px 7px;border-radius:4px}
 button.rtag:hover{color:var(--accent);border-color:var(--accent)}
 button.rtag:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.recent{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
-@media (max-width:640px){.recent{grid-template-columns:1fr}}
-.rcol{display:grid;gap:8px;align-content:start}
+.recent{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;grid-auto-rows:auto;column-gap:28px}
+.rcol{display:grid;grid-row:span 4;grid-template-rows:subgrid;align-content:start}
+.rcol .rlist{display:contents}
+.rcol h3.eyebrow{padding-bottom:8px}
+@media (max-width:640px){.recent{grid-template-columns:1fr;row-gap:20px}.rcol{grid-row:auto;grid-template-rows:none}.rcol .rlist{display:grid}}
 .rcol h3.eyebrow{font:500 .75rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0}
 .rlist{list-style:none;margin:0;padding:0;display:grid}
 .rlist li{display:grid;gap:3px;padding:10px 0;border-bottom:1px solid var(--line)}
 .rlist li:last-child{border-bottom:0}
+.rcol li{align-content:start}
 .rlist .rtitle{font-size:.95rem}
 .rvenue{font-size:.85rem;color:var(--muted);font-style:italic}
+.pressline{margin:2px 0 6px;display:block}
+a.press{font:500 .74rem/1.4 var(--mono);color:var(--accent);text-decoration:none;border-bottom:1px dotted currentColor}
+a.press:hover{border-bottom-style:solid}
 </style>
 
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -216,7 +222,7 @@ button.rtag:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
       <div class="rcol"><h3 class="eyebrow">Latest preprints</h3>
         <ul class="rlist"><li><a class="rtitle" href="https://arxiv.org/abs/2610.19060" target="_blank" rel="noopener">The cost of classically simulating quantum communication is as high as it could be</a><span class="rvenue">arXiv:2610.19060</span></li><li><a class="rtitle" href="https://arxiv.org/abs/2610.08445" target="_blank" rel="noopener">Quantifying the fidelity of a quantum memory</a><span class="rvenue">arXiv:2610.08445</span></li><li><a class="rtitle" href="https://arxiv.org/abs/2609.18570" target="_blank" rel="noopener">Catalytic Activation of Genuine Multipartite Entanglement and Nonlocality</a><span class="rvenue">arXiv:2609.18570</span></li></ul></div>
       <div class="rcol"><h3 class="eyebrow">Recent publications</h3>
-        <ul class="rlist"><li><a class="rtitle" href="https://doi.org/10.1038/s41567-026-03397-y" target="_blank" rel="noopener">An information-theoretic proof of the Planckian bound for thermalization</a><span class="rvenue">Nature Physics · 2026</span></li><li><a class="rtitle" href="https://doi.org/10.1103/4cjg-tkzg" target="_blank" rel="noopener">The power of quantum catalytic local operations</a><span class="rvenue">Phys. Rev. A · 2026</span></li><li><a class="rtitle" href="https://doi.org/10.21468/SciPostPhys.20.4.107" target="_blank" rel="noopener">Quantum sensing of a quantum field</a><span class="rvenue">SciPost Phys. · 2026</span></li></ul></div>
+        <ul class="rlist"><li><a class="rtitle" href="https://doi.org/10.1038/s41567-026-03397-y" target="_blank" rel="noopener">An information-theoretic proof of the Planckian bound for thermalization</a><span class="rvenue">Nature Physics · 2026</span><span class="pressline"><a class="press" href="https://physicsworld.com/a/your-beer-can-only-cool-so-fast-blame-quantum-mechanics/" target="_blank" rel="noopener" title="Your beer can only cool so fast: blame quantum mechanics">In the press: Physics World ↗</a></span></li><li><a class="rtitle" href="https://doi.org/10.21468/SciPostPhys.20.4.107" target="_blank" rel="noopener">Quantum sensing of a quantum field</a><span class="rvenue">SciPost Phys. · 2026</span></li><li><a class="rtitle" href="https://doi.org/10.1103/5dth-7zm8" target="_blank" rel="noopener">Catalytic Activation of Bell Nonlocality</a><span class="rvenue">Phys. Rev. Lett. · 2025</span></li></ul></div>
     </div>
   </section>
 
@@ -272,51 +278,61 @@ button.rtag:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <h3><a class="plain" href="https://doi.org/10.1038/s41586-022-04941-5" target="_blank" rel="noopener">Device-Independent Quantum Key Distribution</a></h3>
     <p class="auth">D. P. Nadlinger, P. Drmota, B. C. Nichol, G. Araneda, D. Main, R. Srinivas, D. M. Lucas, C. J. Ballance, K. Ivanov, E. Y-Z. Tan, <strong>P. Sekatski</strong>, R. L. Urbanke, R. Renner, N. Sangouard, J-D. Bancal</p>
     <p class="venue"><em>Nature 607, 682-686</em> (2022)</p>
+    
     <div class="tags"><button class="tag" data-go="diqkd">Device-independent QKD</button></div>
   </div></li><li class="pub"><div class="glyph"><svg viewBox="0 0 40 40"><path d="M4 20c3-10 6-10 9 0s6 10 9 0 6-10 9 0 3 6 5 6"></path><path d="M4 33h32" stroke-dasharray="2 3"></path><circle class="fillB" cx="22" cy="20" r="2.6"></circle></svg></div><div>
     <h3><a class="plain" href="https://doi.org/10.1103/PhysRevX.7.041009" target="_blank" rel="noopener">Adaptive quantum metrology under general Markovian noise</a></h3>
     <p class="auth">R. Demkowicz-Dobrzański, J. Czajkowski, <strong>P. Sekatski</strong></p>
     <p class="venue"><em>Phys. Rev. X 7, 041009</em> (2017)</p>
+    
     <div class="tags"><button class="tag" data-go="metrology">Quantum metrology &amp; sensing</button><button class="tag" data-go="control">Control, thermodynamics &amp; computing</button></div>
   </div></li><li class="pub"><div class="glyph"><svg viewBox="0 0 40 40"><path d="M4 30h32"></path><path d="M8 30V18M16 30V10M24 30V22M32 30V14"></path><circle class="fillB" cx="8" cy="18" r="2.4"></circle><circle class="fillB" cx="16" cy="10" r="2.4"></circle><circle class="fillB" cx="24" cy="22" r="2.4"></circle><circle class="fillB" cx="32" cy="14" r="2.4"></circle></svg></div><div>
     <h3><a class="plain" href="https://doi.org/10.1038/s41567-026-03397-y" target="_blank" rel="noopener">An information-theoretic proof of the Planckian bound for thermalization</a></h3>
     <p class="auth">Paolo Abiuso, Alberto Rolandi, John Calsamiglia, <strong>Pavel Sekatski</strong>, Martí Perarnau-Llobet</p>
     <p class="venue"><em>Nature Physics</em> (2026)</p>
+    <p class="pressline"><a class="press" href="https://physicsworld.com/a/your-beer-can-only-cool-so-fast-blame-quantum-mechanics/" target="_blank" rel="noopener" title="Your beer can only cool so fast: blame quantum mechanics">In the press: Physics World ↗</a></p>
     <div class="tags"><button class="tag" data-go="control">Control, thermodynamics &amp; computing</button></div>
   </div></li><li class="pub"><div class="glyph"><svg viewBox="0 0 40 40"><path d="M20 6 34 31H6z"></path><circle class="fillB" cx="20" cy="6" r="3.2"></circle><circle class="fillB" cx="34" cy="31" r="3.2"></circle><circle class="fillB" cx="6" cy="31" r="3.2"></circle><circle class="fillA" cx="27" cy="18.5" r="2.4"></circle><circle class="fillA" cx="13" cy="18.5" r="2.4"></circle><circle class="fillA" cx="20" cy="31" r="2.4"></circle></svg></div><div>
     <h3><a class="plain" href="https://doi.org/10.1103/PhysRevLett.134.010202" target="_blank" rel="noopener">Topologically Robust Quantum Network Nonlocality</a></h3>
     <p class="auth">Sadra Boreiri*, Tamas Krivachy*, <strong>Pavel Sekatski*</strong>, Antoine Girardin, Nicolas Brunner</p>
     <p class="venue"><em>Phys. Rev. Lett. 134, 010202</em> (2025)</p>
+    
     <div class="tags"><button class="tag" data-go="network-nonlocality">Nonlocality &amp; networks</button></div>
   </div></li><li class="pub"><div class="glyph"><svg viewBox="0 0 40 40"><path d="M20 6 34 31H6z"></path><circle class="fillB" cx="20" cy="6" r="3.2"></circle><circle class="fillB" cx="34" cy="31" r="3.2"></circle><circle class="fillB" cx="6" cy="31" r="3.2"></circle><circle class="fillA" cx="27" cy="18.5" r="2.4"></circle><circle class="fillA" cx="13" cy="18.5" r="2.4"></circle><circle class="fillA" cx="20" cy="31" r="2.4"></circle></svg></div><div>
     <h3><a class="plain" href="https://doi.org/10.1103/3fv7-p8cs" target="_blank" rel="noopener">Partial independence suffices to prove real Hilbert spaces insufficient in quantum physics</a></h3>
     <p class="auth">Mirjam Weilenmann, Nicolas Gisin, <strong>Pavel Sekatski</strong></p>
     <p class="venue"><em>Phys. Rev. Lett. 135, 180201</em> (2025)</p>
+    
     <div class="tags"><button class="tag" data-go="network-nonlocality">Nonlocality &amp; networks</button></div>
   </div></li><li class="pub"><div class="glyph"><svg viewBox="0 0 40 40"><rect x="4" y="12" width="12" height="16" rx="2"></rect><rect x="24" y="12" width="12" height="16" rx="2"></rect><path d="M16 20h8" stroke-dasharray="2 2"></path><path d="M10 12V7M30 12V7M10 33v-5M30 33v-5"></path><path d="m7 20 2 2 4-4"></path><circle class="fillB" cx="30" cy="20" r="2.6"></circle></svg></div><div>
     <h3><a class="plain" href="https://doi.org/10.1103/PhysRevLett.121.180505" target="_blank" rel="noopener">Certifying the Building Blocks of Quantum Computers from Bell’s Theorem</a></h3>
     <p class="auth"><strong>P. Sekatski</strong>, J.-D. Bancal, S. Wagner, N. Sangouard</p>
     <p class="venue"><em>Phys. Rev. Lett. 121, 180505</em> (2018)</p>
+    
     <div class="tags"><button class="tag" data-go="self-testing">Self-testing &amp; DI certification</button></div>
   </div></li><li class="pub"><div class="glyph"><svg viewBox="0 0 40 40"><path d="M8 18V7l6 5h12l6-5v11A12 12 0 0 1 8 18z"></path><path d="M20 12v18" stroke-dasharray="2 2"></path><circle class="fillB" cx="14" cy="19" r="2.2"></circle><path d="M24.5 17l4 4M28.5 17l-4 4"></path><path d="M16.5 25q1.75 1.5 3.5 0q1.75 1.5 3.5 0"></path></svg></div><div>
     <h3><a class="plain" href="https://doi.org/10.1103/RevModPhys.90.025004" target="_blank" rel="noopener">Macroscopic quantum states: Measures, fragility, and implementations</a></h3>
     <p class="auth">F. Fröwis∗, <strong>P. Sekatski∗</strong>, W. Dür, N. Gisin, N. Sangouard</p>
     <p class="venue"><em>Rev. Mod. Phys. 90 (2), 025004</em> (2018)</p>
+    
     <div class="tags"><button class="tag" data-go="macroscopic">Macroscopic quantum states</button></div>
   </div></li><li class="pub"><div class="glyph"><svg viewBox="0 0 40 40"><path d="M4 20h9"></path><path d="M27 20h9"></path><rect x="13" y="12" width="14" height="16" rx="3"></rect><path d="M17 17v6M20 15v10M23 17v6"></path><circle class="fillB" cx="6" cy="20" r="2"></circle></svg></div><div>
     <h3><a class="plain" href="https://doi.org/10.1038/s41586-019-1709-y" target="_blank" rel="noopener">A gated quantum dot far in the strong-coupling regime of cavity-QED at optical frequencies</a></h3>
     <p class="auth">D. Najer, I. Söllner, <strong>P. Sekatski</strong>, V. Dolique, M. Löbl, D. Riedel, R. Schott, S. Starosielec, S. Valentin, A. Wieck, N. Sangouard, A. Ludwig, R. Warburton</p>
     <p class="venue"><em>Nature 575, 622</em> (2019)</p>
+    
     <div class="tags"><button class="tag" data-go="memories">Modeling quantum optics experiments</button></div>
   </div></li><li class="pub"><div class="glyph"><svg viewBox="0 0 40 40"><path d="M8 18V7l6 5h12l6-5v11A12 12 0 0 1 8 18z"></path><path d="M20 12v18" stroke-dasharray="2 2"></path><circle class="fillB" cx="14" cy="19" r="2.2"></circle><path d="M24.5 17l4 4M28.5 17l-4 4"></path><path d="M16.5 25q1.75 1.5 3.5 0q1.75 1.5 3.5 0"></path></svg></div><div>
     <h3><a class="plain" href="https://doi.org/10.1038/nphys2681" target="_blank" rel="noopener">Displacing entanglement back and forth between the micro and macro domains</a></h3>
     <p class="auth">N. Bruno, A. Martin, <strong>P. Sekatski</strong>, N. Sangouard, R. Thew, N. Gisin</p>
     <p class="venue"><em>Nature Physics 9, 545</em> (2013)</p>
+    
     <div class="tags"><button class="tag" data-go="macroscopic">Macroscopic quantum states</button><button class="tag" data-go="entanglement">Entanglement: detection &amp; transformation</button></div>
   </div></li><li class="pub"><div class="glyph"><svg viewBox="0 0 40 40"><path d="M20 20c-3-4-6-7-10-7a7 7 0 0 0 0 14c4 0 7-3 10-7s6-7 10-7a7 7 0 0 1 0 14c-4 0-7-3-10-7z"></path><circle class="fillB" cx="10" cy="20" r="2.6"></circle><circle class="fillB" cx="30" cy="20" r="2.6"></circle></svg></div><div>
     <h3><a class="plain" href="https://doi.org/10.1103/PhysRevLett.122.060502" target="_blank" rel="noopener">Device-independent detection of genuine multipartite entanglement for all pure states</a></h3>
     <p class="auth">M. Zwerger, W. Dür, J.-D. Bancal, <strong>P. Sekatski</strong></p>
     <p class="venue"><em>Phys. Rev. Lett. 122, 060502</em> (2019)</p>
+    
     <div class="tags"><button class="tag" data-go="entanglement">Entanglement: detection &amp; transformation</button><button class="tag" data-go="self-testing">Self-testing &amp; DI certification</button><button class="tag" data-go="network-nonlocality">Nonlocality &amp; networks</button></div>
   </div></li></ul>
   </section>
@@ -324,576 +340,691 @@ button.rtag:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
     <a class="rtitle" href="https://arxiv.org/abs/2610.19060" target="_blank" rel="noopener">The cost of classically simulating quantum communication is as high as it could be</a>
     <span class="auth">Riccardo Castellano, <strong>Pavel Sekatski</strong>, Nicolas Brunner</span>
     <span class="venue"><em>arXiv:2610.19060</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2610.08445" target="_blank" rel="noopener">Quantifying the fidelity of a quantum memory</a>
     <span class="auth">Victor Barizien, Sophie Egelhaaf, Angelo Gelmini Rodriguez, Louis Nicolas, Théo Sanchez Mejia, Mikael Afzelius, <strong>Pavel Sekatski</strong>, Nicolas Brunner</span>
     <span class="venue"><em>arXiv:2610.08445</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2609.18570" target="_blank" rel="noopener">Catalytic Activation of Genuine Multipartite Entanglement and Nonlocality</a>
     <span class="auth">Eliot Donnadieu, <strong>Pavel Sekatski</strong>, Nicolas Brunner, Victor Barizien</span>
     <span class="venue"><em>arXiv:2609.18570</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2609.11618" target="_blank" rel="noopener">Quantum models of interaction Hamiltonians and their paradoxes</a>
     <span class="auth">Nicolas Gisin, Serge Massar, Jef Pauwels, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>arXiv:2609.11618</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2608.25010" target="_blank" rel="noopener">The bottleneck dimension of quantum operations</a>
     <span class="auth"><strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>arXiv:2608.25010</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2608.13177" target="_blank" rel="noopener">Entanglement distribution and quantum storage of more than 8000 modes over a metropolitan network</a>
     <span class="auth">Angelo Gelmini Rodriguez, Louis Nicolas, Théo Sanchez Mejia, <strong>Pavel Sekatski</strong>, Nicolas Brunner, Towsif Taher, Rob Thew, Philippe Goldner, Mikael Afzelius</span>
     <span class="venue"><em>arXiv:2608.13177</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2608.01194" target="_blank" rel="noopener">Hybrid Quantum Neural Networks: Theory, Implementations, and Applications</a>
     <span class="auth">Léo Monbroussou, Maniraman Periyasamy, Viacheslav Kuzmin, <strong>Pavel Sekatski</strong>, Viktoria Patapovich, Asel Sagingalieva, Alexey Melnikov</span>
     <span class="venue"><em>arXiv:2608.01194</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2606.25124" target="_blank" rel="noopener">Self-testing Quantum Supermaps</a>
     <span class="auth">Victor Barizien, Cyril Branciard, Alastair A. Abbott, Jean-Daniel Bancal, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>arXiv:2606.25124</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2606.14365" target="_blank" rel="noopener">Certification of the genuine resolution of photon number resolving detectors</a>
     <span class="auth">Jef Pauwels, Towsif Taher, Roope Uola, Boris Korzh, Nicolas Brunner, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>arXiv:2606.14365</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2603.17783" target="_blank" rel="noopener">Superactivation of genuine multipartite Bell nonlocality from two-party entanglement</a>
     <span class="auth">Markus Miethlinger, Riccardo Castellano, <strong>Pavel Sekatski</strong>, Nicolas Brunner</span>
     <span class="venue"><em>arXiv:2603.17783</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2512.15656" target="_blank" rel="noopener">All Entangled States are Nonlocal and Self-Testable in the Broadcast Scenario</a>
     <span class="auth"><strong>Pavel Sekatski</strong>, Jef Pauwels</span>
     <span class="venue"><em>arXiv:2512.15656</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2509.01515" target="_blank" rel="noopener">The entropic coherence is a necessary resource for non-energy preserving gates</a>
     <span class="auth">Riccardo Castellano, Vasco Cavina, Marti Perarnau-Llobet, Vittorio Giovannetti, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>arXiv:2509.01515</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2509.08059" target="_blank" rel="noopener">Cloning Quantum Channels</a>
     <span class="auth"><strong>Pavel Sekatski</strong>, Yelena Guryanova, Naga Bhavya Teja Kothakonda, Michalis Skotiniotis</span>
     <span class="venue"><em>arXiv:2509.08059</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2508.05348" target="_blank" rel="noopener">On the entropy growth of sums of iid discrete random variables</a>
     <span class="auth">Riccardo Castellano, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>arXiv:2508.05348</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="probability">Probability &amp; statistics</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2506.11855" target="_blank" rel="noopener">Exact requirements for battery-assisted qubit gates</a>
     <span class="auth">Riccardo Castellano, Vasco Cavina, Martí Perarnau-Llobet, <strong>Pavel Sekatski</strong>, Vittorio Giovannetti</span>
     <span class="venue"><em>arXiv:2506.11855</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2502.12241" target="_blank" rel="noopener">Certification of quantum correlations and DIQKD at arbitrary distances through routed Bell tests</a>
     <span class="auth"><strong>Pavel Sekatski</strong>, Jef Pauwels, Edwin Peter Lobo, Stefano Pironio, Nicolas Brunner</span>
     <span class="venue"><em>arXiv:2502.12241</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="diqkd">Device-independent QKD</button><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2411.02313" target="_blank" rel="noopener">Information plane and compression-gnostic feedback in quantum machine learning</a>
     <span class="auth">Nathan Haboury, Mo Kordzanganeh, Alexey Melnikov, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>arXiv:2411.02313</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://arxiv.org/abs/2212.12558" target="_blank" rel="noopener">Simple Buehler-optimal confidence intervals on the average success probability of independent Bernoulli trials</a>
     <span class="auth">Jean-Daniel Bancal, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>arXiv:2212.12558</em> <span class="pre">preprint</span></span>
+    
     <span class="rtags"><button class="rtag" data-go="probability">Probability &amp; statistics</button></span>
   </li></ol><h3 class="yearhead">2026</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1038/s41567-026-03397-y" target="_blank" rel="noopener">An information-theoretic proof of the Planckian bound for thermalization</a>
     <span class="auth">Paolo Abiuso, Alberto Rolandi, John Calsamiglia, <strong>Pavel Sekatski</strong>, Martí Perarnau-Llobet</span>
     <span class="venue"><em>Nature Physics</em> (2026)</span>
+    <span class="pressline"><a class="press" href="https://physicsworld.com/a/your-beer-can-only-cool-so-fast-blame-quantum-mechanics/" target="_blank" rel="noopener" title="Your beer can only cool so fast: blame quantum mechanics">In the press: Physics World ↗</a></span>
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/4cjg-tkzg" target="_blank" rel="noopener">The power of quantum catalytic local operations</a>
     <span class="auth">Patryk Lipka-Bartosik, Jessica Bavaresco, Nicolas Brunner, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. A 113, 062216</em> (2026)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.21468/SciPostPhys.20.4.107" target="_blank" rel="noopener">Quantum sensing of a quantum field</a>
     <span class="auth">Ricard Ravell Rodríguez, Martí Perarnau-Llobet, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>SciPost Phys. 20, 107</em> (2026)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li></ol><h3 class="yearhead">2025</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/bqwm-ll5y" target="_blank" rel="noopener">Bell nonlocality in quantum networks with unreliable sources: Loophole-free postelection via self-testing</a>
     <span class="auth">Sadra Boreiri, Nicolas Brunner, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. Lett. 135, 160802</em> (2025)</span>
+    
     <span class="rtags"><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/5dth-7zm8" target="_blank" rel="noopener">Catalytic Activation of Bell Nonlocality</a>
     <span class="auth">J. Bavaresco, N. Brunner, A. Girardin, P. Lipka-Bartosik, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. Lett. 135, 220203</em> (2025)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/3fv7-p8cs" target="_blank" rel="noopener">Partial independence suffices to prove real Hilbert spaces insufficient in quantum physics</a>
     <span class="auth">Mirjam Weilenmann, Nicolas Gisin, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. Lett. 135, 180201</em> (2025)</span>
+    
     <span class="rtags"><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://quantum-journal.org/papers/q-2025-08-27-1830/" target="_blank" rel="noopener">Noise-robust proofs of quantum network nonlocality</a>
     <span class="auth">S. Boreiri, B. Ulu, N. Brunner, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>Quantum 9, 1830</em> (2025)</span>
+    
     <span class="rtags"><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://link.aps.org/doi/10.1103/PRXQuantum.6.030309" target="_blank" rel="noopener">From dynamical to steady-state many-body metrology: Precision limits and their attainability with two-body interactions</a>
     <span class="auth">R. Puig, <strong>P. Sekatski</strong>, P.A. Erdman, P. Abiuso, J. Calsamiglia, M. Perarnau-Llobet</span>
     <span class="venue"><em>PRX Quantum 6 (3), 030309</em> (2025)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://iopscience.iop.org/article/10.1088/2058-9565/add61b/meta" target="_blank" rel="noopener">Selective and noise-resilient wave estimation with quantum sensor networks</a>
     <span class="auth">A. Hamann, P. Aigner, W. Dür, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>Quantum Science and Technology 10 (3), 035028</em> (2025)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.134.010801" target="_blank" rel="noopener">Fundamental limits of metrology at thermal equilibrium</a>
     <span class="auth">Paolo Abiuso, <strong>Pavel Sekatski</strong>, John Calsamiglia, Martí Perarnau-Llobet</span>
     <span class="venue"><em>Phys. Rev. Lett. 134, 010801</em> (2025)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.134.010202" target="_blank" rel="noopener">Topologically Robust Quantum Network Nonlocality</a>
     <span class="auth">Sadra Boreiri*, Tamas Krivachy*, <strong>Pavel Sekatski*</strong>, Antoine Girardin, Nicolas Brunner</span>
     <span class="venue"><em>Phys. Rev. Lett. 134, 010202</em> (2025)</span>
+    
     <span class="rtags"><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li></ol><h3 class="yearhead">2024</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2024-12-23-1574" target="_blank" rel="noopener">Joint-measurability and quantum communication with untrusted devices</a>
     <span class="auth">Michele Masini, Marie Ioannou, Nicolas Brunner, Stefano Pironio, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>Quantum 8, 1574</em> (2024)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevResearch.6.033101" target="_blank" rel="noopener">Quantum computation with logical gates between hot systems</a>
     <span class="auth">Ferran Riera-Sàbat, <strong>Pavel Sekatski</strong>, Wolfgang Dür</span>
     <span class="venue"><em>Phys. Rev. Research 6, 033101</em> (2024)</span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevResearch.6.023305" target="_blank" rel="noopener">Designing optimal protocols in Bayesian quantum parameter estimation with higher-order operations</a>
     <span class="auth">Jessica Bavaresco, Patryk Lipka-Bartosik, <strong>Pavel Sekatski</strong>, Mohammad Mehboudi</span>
     <span class="venue"><em>Phys. Rev. Research 6, 023305</em> (2024)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2024-05-02-1333" target="_blank" rel="noopener">Custom Bell inequalities from formal sums of squares</a>
     <span class="auth">Victor Barizien, <strong>Pavel Sekatski</strong>, Jean-Daniel Bancal</span>
     <span class="venue"><em>Quantum 8, 1333</em> (2024)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/2058-9565/ad37d5" target="_blank" rel="noopener">Optimal distributed multiparameter estimation in noisy environments</a>
     <span class="auth">Arne Hamann, <strong>Pavel Sekatski</strong>, Wolfgang Dür</span>
     <span class="venue"><em>Quantum Sci. Technol. 9 035005</em> (2024)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1038/s41534-024-00859-0" target="_blank" rel="noopener">Calibration-Independent Certification of a Quantum Frequency Converter</a>
     <span class="auth">Matthias Bock, <strong>Pavel Sekatski</strong>, Jean-Daniel Bancal, Stephan Kucera, Tobias Bauer, Nicolas Sangouard, Christoph Becher, Jürgen Eschner</span>
     <span class="venue"><em>npj Quantum Information 10, 63</em> (2024)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.109.022215" target="_blank" rel="noopener">Compatibility of projective measurements subject to white noise and loss</a>
     <span class="auth"><strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. A 109, 022215</em> (2024)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li></ol><h3 class="yearhead">2023</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.131.170802" target="_blank" rel="noopener">Towards the device-independent certification of a quantum memory</a>
     <span class="auth"><strong>Pavel Sekatski</strong>, Jean-Daniel Bancal, Marie Ioannou, Mikael Afzelius, Nicolas Brunner</span>
     <span class="venue"><em>Phys. Rev. Lett. 131, 170802</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.131.110201" target="_blank" rel="noopener">Unlimited One-Way Steering</a>
     <span class="auth"><strong>Pavel Sekatski</strong>, Florian Giraud, Roope Uola, Nicolas Brunner</span>
     <span class="venue"><em>Phys. Rev. Lett. 131, 110201</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.131.100201" target="_blank" rel="noopener">Partial self-testing and randomness certification in the triangle network</a>
     <span class="auth"><strong>Pavel Sekatski</strong>, Sadra Boreiri, Nicolas Brunner</span>
     <span class="venue"><em>Phys. Rev. Lett. 131, 100201</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/2632-2153/ace757" target="_blank" rel="noopener">An exponentially-growing family of universal quantum circuits</a>
     <span class="auth">Mo Kordzanganeh, <strong>Pavel Sekatski</strong>, Leonid Fedichkin, Alexey Melnikov</span>
     <span class="venue"><em>Mach. Learn.: Sci. Technol. 4(3), 035036</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.107.062607" target="_blank" rel="noopener">Automated design of quantum optical experiments for device-independent quantum key distribution</a>
     <span class="auth">Xavier Valcarce, <strong>Pavel Sekatski</strong>, Elie Gouzien, Alexey Melnikov, Nicolas Sangouard</span>
     <span class="venue"><em>Phys. Rev. A 107, 062607</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/acb5ba" target="_blank" rel="noopener">A Quantum Simulator Based on Locally Controlled Logical Systems</a>
     <span class="auth">Ferran Riera-Sàbat, <strong>Pavel Sekatski</strong>, Wolfgang Dür</span>
     <span class="venue"><em>New J. Phys. 25, 023001</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.107.062413" target="_blank" rel="noopener">Towards a minimal example of quantum nonlocality without inputs</a>
     <span class="auth">Sadra Boreiri, Antoine Girardin, Bora Ulu, Patryk Lipka-Bartosik, Nicolas Brunner, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. A 107, 062413</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.107.052425" target="_blank" rel="noopener">Equivalence between simulability of high-dimensional measurements and high-dimensional steering</a>
     <span class="auth">Benjamin D. M. Jones, Roope Uola, Thomas Cope, Marie Ioannou, Sébastien Designolle, <strong>Pavel Sekatski</strong>, Nicolas Brunner</span>
     <span class="venue"><em>Phys. Rev. A 107, 052425</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2023-01-24-904" target="_blank" rel="noopener">Remotely Controlled Entanglement Generation</a>
     <span class="auth">Ferran Riera-Sàbat, <strong>Pavel Sekatski</strong>, Wolfgang Dür</span>
     <span class="venue"><em>Quantum 7, 904</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.130.050803" target="_blank" rel="noopener">Entanglement of trapped-ion qubits separated by 230 meters</a>
     <span class="auth">V. Krutyanskiy, M. Galli, V. Krcmarsky, S. Baier, D. A. Fioretto, Y. Pu, A. Mazloom, <strong>P. Sekatski</strong>, M. Canteri, M. Teller, J. Schupp, J. Bate, M. Meraner, N. Sangouard, B. P. Lanyon, T. E. Northup</span>
     <span class="venue"><em>Phys. Rev. Lett. 130, 050803</em> (2023)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li></ol><h3 class="yearhead">2022</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2022-12-13-875" target="_blank" rel="noopener">Benchmarking single-photon sources from an auto-correlation measurement</a>
     <span class="auth"><strong>P. Sekatski</strong>, E. Oudot, P. Caspar, R. Thew, N. Sangouard</span>
     <span class="venue"><em>Quantum 6, 875</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2022-12-07-869" target="_blank" rel="noopener">Optimal nonequilibrium thermometry in finite time</a>
     <span class="auth"><strong>Pavel Sekatski</strong>, Martí Perarnau-Llobet</span>
     <span class="venue"><em>Quantum 6, 869</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.129.190401" target="_blank" rel="noopener">Simulability of high-dimensional quantum measurements</a>
     <span class="auth">Marie Ioannou, <strong>Pavel Sekatski</strong>, Sébastien Designolle, Benjamin D.M. Jones, Roope Uola, Nicolas Brunner</span>
     <span class="venue"><em>Phys. Rev. Lett. 129, 190401</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/ac71bc" target="_blank" rel="noopener">Receiver-Device-Independent Quantum Key Distribution Protocols</a>
     <span class="auth">Marie Ioannou, <strong>Pavel Sekatski</strong>, Alastair A. Abbott, Denis Rosset, Jean-Daniel Bancal, Nicolas Brunner</span>
     <span class="venue"><em>New J. Phys. 24 063006</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2022-12-22-880" target="_blank" rel="noopener">Improved DIQKD protocols with finite-size analysis</a>
     <span class="auth">Ernest Y. -Z. Tan, <strong>Pavel Sekatski</strong>, Jean-Daniel Bancal, René Schwonnek, Renato Renner, Nicolas Sangouard, Charles C. -W. Lim</span>
     <span class="venue"><em>Quantum 6, 880</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2022-05-24-718" target="_blank" rel="noopener">Quantum Key Distribution with Few Assumptions</a>
     <span class="auth">Marie Ioannou, Maria Ana Pereira, Davide Rusca, Fadri Grünenfelder, Alberto Boaron, Matthieu Perrenoud, Alastair A. Abbott, <strong>Pavel Sekatski</strong>, Jean-Daniel Bancal, Nicolas Maring, Hugo Zbinden, Nicolas Brunner</span>
     <span class="venue"><em>Quantum 6, 718</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1038/s41586-022-04941-5" target="_blank" rel="noopener">Device-Independent Quantum Key Distribution</a>
     <span class="auth">D. P. Nadlinger, P. Drmota, B. C. Nichol, G. Araneda, D. Main, R. Srinivas, D. M. Lucas, C. J. Ballance, K. Ivanov, E. Y-Z. Tan, <strong>P. Sekatski</strong>, R. L. Urbanke, R. Renner, N. Sangouard, J-D. Bancal</span>
     <span class="venue"><em>Nature 607, 682-686</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.129.190503" target="_blank" rel="noopener">Certification of Genuine Multipartite Entanglement with General and Robust Device-independent Witnesses</a>
     <span class="auth">Chao Zhang, Wen-Hao Zhang, <strong>Pavel Sekatski</strong>, Jean-Daniel Bancal, Michael Zwerger, Peng Yin, Gong-Chu Li, Xing-Xiang Peng, Lei Chen, Yong-Jian Han, Jin-Shi Xu, Yun-Feng Huang, Geng Chen, Chuan-Feng Li, Guang-Can Guo</span>
     <span class="venue"><em>Phys. Rev. Lett. 129, 190503</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/2058-9565/ac44de" target="_blank" rel="noopener">Approximate decoherence free subspaces for distributed sensing</a>
     <span class="auth">Arne Hamann, <strong>Pavel Sekatski</strong>, Wolfgang Dür</span>
     <span class="venue"><em>Quantum Sci. Technol. 7 025003</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2022-03-22-671" target="_blank" rel="noopener">Local and scalable detection of genuine multipartite single-photon path entanglement</a>
     <span class="auth">Patrik Caspar, Enky Oudot, <strong>Pavel Sekatski</strong>, Nicolas Maring, Anthony Martin, Nicolas Sangouard, Hugo Zbinden, Rob Thew</span>
     <span class="venue"><em>Quantum 6, 671</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevResearch.4.013049" target="_blank" rel="noopener">Self-testing two-qubit maximally entangled states from generalized CHSH tests</a>
     <span class="auth">Xavier Valcarce, Julian Zivy, Nicolas Sangouard, <strong>Pavel Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. Research 4, 013049</em> (2022)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li></ol><h3 class="yearhead">2021</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.127.040502" target="_blank" rel="noopener">Entanglement-assisted entanglement purification</a>
     <span class="auth">Ferran Riera Sàbat, <strong>Pavel Sekatski</strong>, Alexander Pirker, Wolfgang Dür</span>
     <span class="venue"><em>Phys. Rev. Lett. 127, 040502</em> (2021)</span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.104.012419" target="_blank" rel="noopener">Entanglement purification by counting and locating errors with entangling measurements</a>
     <span class="auth">Ferran Riera Sàbat, <strong>Pavel Sekatski</strong>, Alexander Pirker, Wolfgang Dür</span>
     <span class="venue"><em>Phys. Rev. A 104, 012419</em> (2021)</span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/2632-2153/abec22" target="_blank" rel="noopener">Control of Stochastic Quantum Dynamics with Differentiable Programming</a>
     <span class="auth">Frank Schäfer, <strong>Pavel Sekatski</strong>, Martin Koppenhöfer, Christoph Bruder, Michal Kloc</span>
     <span class="venue"><em>Mach. Learn.: Sci. Technol. 2 035004</em> (2021)</span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2021-04-26-444" target="_blank" rel="noopener">Device-independent quantum key distribution from generalized CHSH inequalities</a>
     <span class="auth"><strong>P. Sekatski</strong>, J.-D. Bancal, X. Valcarce, E.Y.-Z. Tan, R. Renner, N. Sangouard</span>
     <span class="venue"><em>Quantum 5, 444</em> (2021)</span>
+    
     <span class="rtags"><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2021-03-02-401" target="_blank" rel="noopener">Self-testing with finite statistics enabling the certification of a quantum network link</a>
     <span class="auth">J.-D. Bancal, K. Redeker, <strong>P. Sekatski</strong>, W. Rosenfeld, N. Sangouard</span>
     <span class="venue"><em>Quantum 5, 401</em> (2021)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li></ol><h3 class="yearhead">2020</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.102.052614" target="_blank" rel="noopener">Indistinguishable photons from a trapped-ion quantum network node</a>
     <span class="auth">M. Meraner, A. Mazloom, V. Krutyanskiy, V. Krcmarsky, J. Schupp, D. Fioretto, <strong>P. Sekatski</strong>, T. E. Northup, N. Sangouard, B. P. Lanyon</span>
     <span class="venue"><em>Phys. Rev. A 102, 052614</em> (2020)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.125.160401" target="_blank" rel="noopener">Setting Up Experimental Bell Tests with Reinforcement Learning</a>
     <span class="auth">A. Melnikov, <strong>P. Sekatski</strong>, N. Sangouard</span>
     <span class="venue"><em>Phys. Rev. Lett. 125, 160401</em> (2020)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.125.110506" target="_blank" rel="noopener">Heralded distribution of single-photon path entanglement</a>
     <span class="auth">P. Caspar, E. Verbanis, E. Oudot, N. Maring, F. Samara, Mi. Caloz, M. Perrenoud, <strong>P. Sekatski</strong>, A. Martin, N. Sangouard, H. Zbinden, R. Thew</span>
     <span class="venue"><em>Phys. Rev. Lett. 125, 110506</em> (2020)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/2058-9565/ab9ba5" target="_blank" rel="noopener">Noisy distributed sensing in the Bayesian regime</a>
     <span class="auth">S. Wölk, <strong>P. Sekatski</strong>, W. Dür</span>
     <span class="venue"><em>Quantum Sci. Technol. 5 045003</em> (2020)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.124.230502" target="_blank" rel="noopener">Noisy pre-processing facilitating a photonic realisation of device-independent quantum key distribution</a>
     <span class="auth">M. Ho, <strong>P. Sekatski</strong>, E. Y. -Z. Tan, R. Renner, J. -D. Bancal, N. Sangouard</span>
     <span class="venue"><em>Phys. Rev. Lett. 124, 230502</em> (2020)</span>
+    
     <span class="rtags"><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2020-03-23-246" target="_blank" rel="noopener">What is the minimum CHSH score certifying that a state resembles the singlet?</a>
     <span class="auth">X. Valcarce, <strong>P. Sekatski</strong>, D. Orsucci, E. Oudot, J.-D. Bancal, N. Sangouard</span>
     <span class="venue"><em>Quantum 4, 246</em> (2020)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2020-03-02-238" target="_blank" rel="noopener">How post-selection affects device-independent claims</a>
     <span class="auth">D. Orsucci, J.-D. Bancal, N. Sangouard, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>Quantum 4, 238</em> (2020)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevResearch.2.023052" target="_blank" rel="noopener">Optimal distributed sensing in noisy environments</a>
     <span class="auth"><strong>P. Sekatski</strong>, S Wölk, W. Dür</span>
     <span class="venue"><em>Phys. Rev. Research 2, 023052</em> (2020)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2020-03-19-243" target="_blank" rel="noopener">Device-independent characterization of generalized measurements</a>
     <span class="auth">S. Wagner, J.-D. Bancal, N. Sangouard, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>Quantum 4, 243</em> (2020)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li></ol><h3 class="yearhead">2019</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/ab4c7c" target="_blank" rel="noopener">Bipartite nonlocality with a many-body system</a>
     <span class="auth">E. Oudot, J.-D. Bancal, <strong>P. Sekatski</strong>, N. Sangouard</span>
     <span class="venue"><em>New J. Phys. 21 103043</em> (2019)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1038/s41586-019-1709-y" target="_blank" rel="noopener">A gated quantum dot far in the strong-coupling regime of cavity-QED at optical frequencies</a>
     <span class="auth">D. Najer, I. Söllner, <strong>P. Sekatski</strong>, V. Dolique, M. Löbl, D. Riedel, R. Schott, S. Starosielec, S. Valentin, A. Wieck, N. Sangouard, A. Ludwig, R. Warburton</span>
     <span class="venue"><em>Nature 575, 622</em> (2019)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.122.060502" target="_blank" rel="noopener">Device-independent detection of genuine multipartite entanglement for all pure states</a>
     <span class="auth">M. Zwerger, W. Dür, J.-D. Bancal, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. Lett. 122, 060502</em> (2019)</span>
+    
     <span class="rtags"><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button><button class="rtag" data-go="network-nonlocality">Nonlocality &amp; networks</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2019-01-25-118" target="_blank" rel="noopener">All macroscopic quantum states are fragile and hard to prepare</a>
     <span class="auth">A. Lopez-Incera, <strong>P. Sekatski</strong>, W. Dür</span>
     <span class="venue"><em>Quantum 3, 118</em> (2019)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li></ol><h3 class="yearhead">2018</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.121.250506" target="_blank" rel="noopener">Noise-resistant device-independent certification of Bell state measurements</a>
     <span class="auth">J.-D. Bancal, N. Sangouard, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. Lett. 121, 250506</em> (2018)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.121.180505" target="_blank" rel="noopener">Certifying the Building Blocks of Quantum Computers from Bell’s Theorem</a>
     <span class="auth"><strong>P. Sekatski</strong>, J.-D. Bancal, S. Wagner, N. Sangouard</span>
     <span class="venue"><em>Phys. Rev. Lett. 121, 180505</em> (2018)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/RevModPhys.90.025004" target="_blank" rel="noopener">Macroscopic quantum states: Measures, fragility, and implementations</a>
     <span class="auth">F. Fröwis∗, <strong>P. Sekatski∗</strong>, W. Dür, N. Gisin, N. Sangouard</span>
     <span class="venue"><em>Rev. Mod. Phys. 90 (2), 025004</em> (2018)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/aa84de" target="_blank" rel="noopener">General measure for macroscopic quantum states beyond ”dead and alive”</a>
     <span class="auth"><strong>P. Sekatski</strong>, B. Yadin, M.-O. Renou, W. Dür, N. Gisin, F. Fröwis</span>
     <span class="venue"><em>New J. Phys. 20 (1), 013025</em> (2018)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li></ol><h3 class="yearhead">2017</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2017-11-21-34" target="_blank" rel="noopener">Macroscopic superpositions require tremendous measurement devices</a>
     <span class="auth">M. Skotiniotis, W. Dür, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>Quantum 1, 34</em> (2017)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevX.7.041009" target="_blank" rel="noopener">Adaptive quantum metrology under general Markovian noise</a>
     <span class="auth">R. Demkowicz-Dobrzański, J. Czajkowski, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>Phys. Rev. X 7, 041009</em> (2017)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2017-09-06-27" target="_blank" rel="noopener">Quantum metrology with full and fast quantum control</a>
     <span class="auth"><strong>P. Sekatski</strong>, M. Skotiniotis, J. Kołodyński, W. Dür</span>
     <span class="venue"><em>Quantum 1, 27</em> (2017)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/aa7144" target="_blank" rel="noopener">Flexible resources for quantum metrology</a>
     <span class="auth">N. Friis, D. Orsucci, M. Skotiniotis, <strong>P. Sekatski</strong>, V. Dunjko, H. J. Briegel, W. Dür</span>
     <span class="venue"><em>New J. Phys. 19 (6), 063044</em> (2017)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.118.170801" target="_blank" rel="noopener">Improved Sensing with a Single Qubit</a>
     <span class="auth"><strong>P. Sekatski</strong>, M. Skotiniotis, W. Dür</span>
     <span class="venue"><em>Phys. Rev. Lett. 118, 170801</em> (2017)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.22331/q-2017-04-25-7" target="_blank" rel="noopener">Proposal for witnessing non-classical light with the human eye</a>
     <span class="auth">A. Dodel, A. Mayinda, E. Oudot, A. Martin, <strong>P. Sekatski</strong>, J.-D. Bancal, N. Sangouard</span>
     <span class="venue"><em>Quantum 1, 7</em> (2017)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li></ol><h3 class="yearhead">2016</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1364/OPTICA.3.000473" target="_blank" rel="noopener">What does it take to detect entanglement with the human eye?</a>
     <span class="auth">V. Caprara Vivoli, <strong>P. Sekatski</strong>, N. Sangouard</span>
     <span class="venue"><em>Optica 3, 473</em> (2016)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.94.062111" target="_blank" rel="noopener">Bounding quantum-gravity-inspired decoherence using atom interferometers</a>
     <span class="auth">J. Minar, <strong>P. Sekatski</strong>, R. Strevenson, N. Sangouard</span>
     <span class="venue"><em>Phys. Rev. A 94, 062111</em> (2016)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/18/7/073034" target="_blank" rel="noopener">Dynamical decoupling leads to improved scaling in noisy quantum metrology</a>
     <span class="auth"><strong>P. Sekatski</strong>, M. Skotiniotis, W. Dür</span>
     <span class="venue"><em>New J. Phys. 18, 073034</em> (2016)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.116.090801" target="_blank" rel="noopener">Detecting large quantum Fisher information with finite measurement precision</a>
     <span class="auth">F. Fröwis, <strong>P. Sekatski</strong>, W. Dür</span>
     <span class="venue"><em>Phys. Rev. Lett. 116, 090801</em> (2016)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/18/3/033025" target="_blank" rel="noopener">Probing wave function collapse models with a classically driven mechanical oscillator</a>
     <span class="auth">M. Ho, A. Lafont, N. Sangouard, <strong>P. Sekatski</strong></span>
     <span class="venue"><em>New J. Phys. 18, 033025</em> (2016)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li></ol><h3 class="yearhead">2015</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/17/7/073032" target="_blank" rel="noopener">Quantum metrology for the Ising Hamiltonian with transverse magnetic field</a>
     <span class="auth">M. Skotiniotis, <strong>P. Sekatski</strong>, W. Dür</span>
     <span class="venue"><em>New J. Phys, 17, 073032</em> (2015)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.92.022355" target="_blank" rel="noopener">No-signaling bounds for quantum cloning and metrology</a>
     <span class="auth"><strong>P. Sekatski</strong>, M. Skotiniotis, W. Dür</span>
     <span class="venue"><em>Phys. Rev. A 92, 022355 · Editors' Suggestion</em> (2015)</span>
+    
     <span class="rtags"><button class="rtag" data-go="metrology">Quantum metrology &amp; sensing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1364/JOSAB.32.002190" target="_blank" rel="noopener">Two-mode squeezed states as Schrodinger-cat-like states</a>
     <span class="auth">E. Oudot, <strong>P. Sekatski</strong>, F. Fröwis, N. Gisin, N. Sangouard</span>
     <span class="venue"><em>J. Opt. Soc. Am. B 32, 2190</em> (2015)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.114.120503" target="_blank" rel="noopener">Deterministic superreplication of one-parameter unitary transformations</a>
     <span class="auth">W. Dür, <strong>P. Sekatski</strong>, M. Skotiniotis</span>
     <span class="venue"><em>Phys. Rev. Lett. 114, 120503</em> (2015)</span>
+    
     <span class="rtags"><button class="rtag" data-go="control">Control, thermodynamics &amp; computing</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/17/2/023023" target="_blank" rel="noopener">Comparing different approaches for generating random numbers device-independently using a photon pair source</a>
     <span class="auth">V. Caprara Vivoli, <strong>P. Sekatski</strong>, J.-D. Bancal, C.C.W. Lim, A. Martin, R.T. Thew, H. Zbinden, N. Gisin, N. Sangouard</span>
     <span class="venue"><em>New Journal of Physics 17 (2), 023023</em> (2015)</span>
+    
     <span class="rtags"><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.91.012107" target="_blank" rel="noopener">Challenging preconceptions about Bell tests with photon pairs</a>
     <span class="auth">V. Caprara Vivoli, <strong>P. Sekatski</strong>, J.-D. Bancal, C.C.W. Lim, B.G. Christensen, A. Martin, R.T. Thew, H. Zbinden, N. Gisin, N. Sangouard</span>
     <span class="venue"><em>Phys. Rev. A 91, 012107</em> (2015)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button><button class="rtag" data-go="diqkd">Device-independent QKD</button></span>
   </li></ol><h3 class="yearhead">2014</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.113.090403" target="_blank" rel="noopener">How difficult it is to prove the quantumness of macroscropic states?</a>
     <span class="auth"><strong>P. Sekatski</strong>, N. Gisin, N. Sangouard</span>
     <span class="venue"><em>Phys. Rev. Lett. 113, 090403</em> (2014)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.112.080502" target="_blank" rel="noopener">Macroscopic optomechanics from displaced single-photon entanglement</a>
     <span class="auth"><strong>P. Sekatski</strong>, M. Aspelmeyer, N. Sangouard</span>
     <span class="venue"><em>Phys. Rev. Lett. 112, 080502</em> (2014)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.89.012116" target="_blank" rel="noopener">The size of quantum superpositions as measured with “classical” detectors</a>
     <span class="auth"><strong>P. Sekatski</strong>, N. Sangouard, N. Gisin</span>
     <span class="venue"><em>Phys. Rev. A 89, 012116</em> (2014)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.89.022119" target="_blank" rel="noopener">Towards loophole-free Bell inequality test with preselected unsymmetrical singlet states of light</a>
     <span class="auth">M. Stobińska, F. Töppel, <strong>P. Sekatski</strong>, A. Buraczewski</span>
     <span class="venue"><em>Phys. Rev. A 89, 022119</em> (2014)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li></ol><h3 class="yearhead">2013</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1038/nphys2681" target="_blank" rel="noopener">Displacing entanglement back and forth between the micro and macro domains</a>
     <span class="auth">N. Bruno, A. Martin, <strong>P. Sekatski</strong>, N. Sangouard, R. Thew, N. Gisin</span>
     <span class="venue"><em>Nature Physics 9, 545</em> (2013)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.110.130401" target="_blank" rel="noopener">Witnessing single-photon entanglement with local homodyne measurements</a>
     <span class="auth">O. Morin, J.-D. Bancal, M. Ho, <strong>P. Sekatski</strong>, V. D’Auria, N. Gisin, J. Laurat, N. Sangouard</span>
     <span class="venue"><em>Phys. Rev. Lett. 110, 130401</em> (2013)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li></ol><h3 class="yearhead">2012</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.86.060301" target="_blank" rel="noopener">Proposal for exploring macroscopic entanglement with a single photon and coherent states</a>
     <span class="auth"><strong>P. Sekatski</strong>, N. Sangouard, M. Stobińskaa, F. Bussiéres, M. Afzelius and N. Gisin</span>
     <span class="venue"><em>Phys. Rev. A 86, 060301(R)</em> (2012)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/0953-4075/45/12/124016" target="_blank" rel="noopener">Detector imperfections in photon-pair source characterization</a>
     <span class="auth"><strong>P. Sekatski</strong>, N. Sangouard, F. Bussiéres, C. Clausen, N. Gisin and H. Zbinden</span>
     <span class="venue"><em>J. Phys. B: At. Mol. Opt. Phys. 45, 124016</em> (2012)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.86.063823" target="_blank" rel="noopener">Filtering of the absolute value of photon-number difference for two-mode macroscopic quantum states</a>
     <span class="auth">M. Stobińska, F. Töppel, <strong>P. Sekatski</strong>, A. Buraczewski, M. Źukowski, M. V. Chekhova, G. Leuchs, N. Gisin</span>
     <span class="venue"><em>Phys. Rev. A 86, 063823</em> (2012)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.86.022323" target="_blank" rel="noopener">Entanglement witnesses and measures for bright squeezed vacuum</a>
     <span class="auth">M. Stobińska, F. Töppel, <strong>P. Sekatski</strong>, M. V. Chekhova</span>
     <span class="venue"><em>Phys. Rev. A 86, 022323</em> (2012)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li></ol><h3 class="yearhead">2011</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.83.053840" target="_blank" rel="noopener">Photon-pair source with controllable delay based on shaped inhomogeneous broadening of rare-earth-metal-doped solids</a>
     <span class="auth"><strong>P. Sekatski</strong>, N. Sangouard, N. Gisin, H. de Riedmatten, M. Afzelius</span>
     <span class="venue"><em>Phys. Rev. A 83, 053840</em> (2011)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1088/1367-2630/13/6/063031" target="_blank" rel="noopener">Experimental amplification of an entangled photon: what if the detection loophole is ignored?</a>
     <span class="auth">B. Sanguinetti, E. Pomarico, <strong>P. Sekatski</strong>, H. Zbinden, N. Gisin</span>
     <span class="venue"><em>New Journal of Physics 13, 063031</em> (2011)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.84.034104" target="_blank" rel="noopener">Bell-inequality tests with macroscopic entangled states of light</a>
     <span class="auth">M. Stobińska, <strong>P. Sekatski</strong>, A. Buraczewski, N. Gisin and G. Leuchs</span>
     <span class="venue"><em>Phys. Rev. A 84, 034104</em> (2011)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.107.250401" target="_blank" rel="noopener">Coarse Graining Makes It Hard to See Micro-Macro Entanglement</a>
     <span class="auth">S. Raeisi, <strong>P. Sekatski</strong>, C. Simon</span>
     <span class="venue"><em>Phys. Rev. Lett. 107, 250401</em> (2011)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.84.052122" target="_blank" rel="noopener">Loophole-free Bell test with one atom and less than one photon on average</a>
     <span class="auth">N. Sangouard, J.-D. Bancal, N. Gisin, W. Rosenfeld, <strong>P. Sekatski</strong>, M. Weber and H. Weinfurter</span>
     <span class="venue"><em>Phys. Rev. A 84, 052122</em> (2011)</span>
+    
     <span class="rtags"><button class="rtag" data-go="self-testing">Self-testing &amp; DI certification</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1134/S0030400X11110221" target="_blank" rel="noopener">Applications of Quantum Cloning</a>
     <span class="auth">E. Pomarico, B. Sanguinetti, <strong>P. Sekatski</strong>, H. Zbinden, N. Gisin</span>
     <span class="venue"><em>Optics and Spectroscopy, Vol. 111, No. 4, pp. 510–519</em> (2011)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li></ol><h3 class="yearhead">2010</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevA.82.053814" target="_blank" rel="noopener">Cloning entangled photons to scales one can see</a>
     <span class="auth"><strong>P. Sekatski</strong>, B. Sanguinetti, E. Pomarico, N. Gisin and C. Simon</span>
     <span class="venue"><em>Phys. Rev. A 82, 053814</em> (2010)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.105.080503" target="_blank" rel="noopener">Quantum Cloning for Absolute Radiometry</a>
     <span class="auth">B. Sanguinetti, E. Pomarico, <strong>P. Sekatski</strong>, H. Zbinden, N. Gisin</span>
     <span class="venue"><em>Phys. Rev. Lett. 105, 080503</em> (2010)</span>
+    
     <span class="rtags"><button class="rtag" data-go="memories">Modeling quantum optics experiments</button></span>
   </li></ol><h3 class="yearhead">2009</h3><ol class="plist"><li class="row">
     <a class="rtitle" href="https://doi.org/10.1103/PhysRevLett.103.113601" target="_blank" rel="noopener">Towards Quantum Experiments with Human Eyes as Detectors Based on Cloning via Stimulated Emission</a>
     <span class="auth"><strong>P. Sekatski</strong>, N. Brunner, C. Branciard, N. Gisin and C. Simon</span>
     <span class="venue"><em>Phys. Rev. Lett. 103, 113601</em> (2009)</span>
+    
     <span class="rtags"><button class="rtag" data-go="macroscopic">Macroscopic quantum states</button><button class="rtag" data-go="entanglement">Entanglement: detection &amp; transformation</button></span>
   </li></ol></section>
 </main>
@@ -963,7 +1094,7 @@ const TOPICS = [
 
 /* All publications, generated from publicationsSep26.pdf. kind: "journal" or "preprint". */
 const PUBS = [
-{"id": 0, "kind": "journal", "title": "An information-theoretic proof of the Planckian bound for thermalization", "authors": "Paolo Abiuso, Alberto Rolandi, John Calsamiglia, Pavel Sekatski, Martí Perarnau-Llobet", "venue": "Nature Physics", "year": 2026, "url": "https://doi.org/10.1038/s41567-026-03397-y", "topics": ["control"]},
+{"id": 0, "kind": "journal", "title": "An information-theoretic proof of the Planckian bound for thermalization", "authors": "Paolo Abiuso, Alberto Rolandi, John Calsamiglia, Pavel Sekatski, Martí Perarnau-Llobet", "venue": "Nature Physics", "year": 2026, "url": "https://doi.org/10.1038/s41567-026-03397-y", "topics": ["control"], "press": [["Physics World", "https://physicsworld.com/a/your-beer-can-only-cool-so-fast-blame-quantum-mechanics/", "Your beer can only cool so fast: blame quantum mechanics"]]},
 {"id": 1, "kind": "journal", "title": "The power of quantum catalytic local operations", "authors": "Patryk Lipka-Bartosik, Jessica Bavaresco, Nicolas Brunner, Pavel Sekatski", "venue": "Phys. Rev. A 113, 062216", "year": 2026, "url": "https://doi.org/10.1103/4cjg-tkzg", "topics": ["entanglement"]},
 {"id": 2, "kind": "journal", "title": "Quantum sensing of a quantum field", "authors": "Ricard Ravell Rodríguez, Martí Perarnau-Llobet, Pavel Sekatski", "venue": "SciPost Phys. 20, 107", "year": 2026, "url": "https://doi.org/10.21468/SciPostPhys.20.4.107", "topics": ["metrology"]},
 {"id": 3, "kind": "journal", "title": "Bell nonlocality in quantum networks with unreliable sources: Loophole-free postelection via self-testing", "authors": "Sadra Boreiri, Nicolas Brunner, Pavel Sekatski", "venue": "Phys. Rev. Lett. 135, 160802", "year": 2025, "url": "https://doi.org/10.1103/bqwm-ll5y", "topics": ["network-nonlocality"]},
@@ -1092,12 +1223,14 @@ const nJ = PUBS.filter(p=>p.kind==="journal").length, nP = PUBS.length-nJ;
 const main = document.getElementById("main");
 let filter = "all", query = "";
 
+const press = p => (p.press||[]).map(([n,u,t])=>`<a class="press" href="${u}" target="_blank" rel="noopener" title="${esc(t)}">In the press: ${esc(n)} ↗</a>`).join("");
 function card(p){
   const t = T[p.topics[0]];
   return `<li class="pub"><div class="glyph">${G[t.g]}</div><div>
     <h3><a class="plain" href="${p.url}" target="_blank" rel="noopener">${esc(p.title)}</a></h3>
     <p class="auth">${me(p.authors)}</p>
     <p class="venue"><em>${esc(p.venue)}</em> (${p.year})</p>
+    ${p.press?`<p class="pressline">${press(p)}</p>`:""}
     <div class="tags">${p.topics.map(id=>`<button class="tag" data-go="${id}">${esc(T[id].title)}</button>`).join("")}</div>
   </div></li>`;
 }
@@ -1107,11 +1240,14 @@ function row(p, exclude){
     <a class="rtitle" href="${p.url}" target="_blank" rel="noopener">${esc(p.title)}</a>
     <span class="auth">${me(p.authors)}</span>
     <span class="venue"><em>${esc(p.venue)}</em>${p.kind==="journal"?` (${p.year})`:""}${p.kind==="preprint"?` <span class="pre">preprint</span>`:""}</span>
+    ${p.press?`<span class="pressline">${press(p)}</span>`:""}
     ${tags.length?`<span class="rtags">${exclude?`<span class="also">Also in</span>`:""}${tags.map(id=>`<button class="rtag" data-go="${id}">${esc(T[id].title)}</button>`).join("")}</span>`:""}
   </li>`;
 }
 
 const RECENT_N = 3;
+/* Recent publications shown on the home page (ids from PUBS), in display order. Preprints are picked automatically. */
+const RECENT_JOURNAL = [0,2,4];
 function latest(kind){
   return PUBS.filter(p=>p.kind===kind)
     .map((p,i)=>[p,i]).sort((a,b)=>(b[0].year-a[0].year)||(a[1]-b[1]))
@@ -1119,7 +1255,7 @@ function latest(kind){
 }
 function mini(p){
   const v = p.kind==="preprint" ? p.venue : `${p.venue.replace(/\s+\d.*$/,"")} · ${p.year}`;
-  return `<li><a class="rtitle" href="${p.url}" target="_blank" rel="noopener">${esc(p.title)}</a><span class="rvenue">${esc(v)}</span></li>`;
+  return `<li><a class="rtitle" href="${p.url}" target="_blank" rel="noopener">${esc(p.title)}</a><span class="rvenue">${esc(v)}</span>${p.press?`<span class="pressline">${press(p)}</span>`:""}</li>`;
 }
 
 function home(){
@@ -1144,7 +1280,7 @@ function home(){
       <div class="rcol"><h3 class="eyebrow">Latest preprints</h3>
         <ul class="rlist">${latest("preprint").map(mini).join("")}</ul></div>
       <div class="rcol"><h3 class="eyebrow">Recent publications</h3>
-        <ul class="rlist">${latest("journal").map(mini).join("")}</ul></div>
+        <ul class="rlist">${RECENT_JOURNAL.map(id=>mini(BY[id])).join("")}</ul></div>
     </div>
   </section>
 
